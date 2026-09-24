@@ -1,49 +1,36 @@
-# Restaurant Menu Ordering App
+🍽️ Saffron & Sage Bistro
+A full-stack restaurant website built with Django — featuring a homepage, an interactive menu ordering system, and a table reservation form. Built as a portfolio project to demonstrate full-stack development skills.
 
-A web-based restaurant menu and ordering system built with Django. Users can browse the menu, select items, and place an order — built as a portfolio project to demonstrate full-stack development skills.
+🔗 GitHub: https://github.com/Keerthi-3009/restaurant-project
+🌐 Live Demo: _add your live link here once deployed_
 
-## Features
+Features
 
-- Browse restaurant menu items
-- Select multiple items and see them added to an order summary
-- View running total and selected items
-- Place an order through a simple, clean interface
+* Homepage with hero banner, tagline, and quick-access buttons (View Menu, Book Table)
+* Browse restaurant menu items by category (e.g. Tandoor Specials, Paneer Specials)
+* Select item quantities and see them added to the order in real time
+* Running order total and selected-items summary
+* Place Order button to submit the order
+* Book a Table reservation form (name, email, phone, date, time)
+* Django admin dashboard for managing menu items
 
-## Tech Stack
+Tech Stack
 
-- **Backend:** Python, Django
-- **Database:** SQLite
-- **Frontend:** HTML, CSS, Bootstrap
-- **Tools:** VS Code, Git/GitHub
+* Backend: Python, Django
+* Database: SQLite
+* Frontend: HTML, CSS, Bootstrap
+* Tools: VS Code, Git/GitHub
 
-## Getting Started
+Screenshots
+Homepage
+![Homepage](screenshots/homepage.png)
 
-### Prerequisites
+Menu Order Page
+![Menu Order](screenshots/menu-order.png)
 
-- Python 3.x installed
-- pip (Python package manager)
+Book a Table
+![Book a Table](screenshots/book-a-table.png)
 
-### Installation
+Setup Instructions
 
 1. Clone the repository
-```bash
-   git clone https://github.com/Keerthi-3009/restaurant-project.git
-   cd restaurant-project
-```
-
-2. Install dependencies
-```bash
-   pip install django
-```
-
-3. Run database migrations
-```bash
-   python manage.py migrate
-```
-
-4. Start the development server
-```bash
-   python manage.py runserver
-```
-
-5. Open your browser and go to
