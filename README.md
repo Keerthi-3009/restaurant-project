@@ -34,3 +34,33 @@ Book a Table
 Setup Instructions
 
 1. Clone the repository
+
+git clone https://github.com/Keerthi-3009/restaurant-project.git
+cd restaurant-project
+
+
+2. Create and activate a virtual environment
+
+python -m venv venv
+venv\Scripts\activate
+
+
+3. Install dependencies
+
+pip install django
+
+
+4. Run migrations
+
+python manage.py makemigrations
+python manage.py migrate
+
+
+5. Create a superuser (optional, for admin access)
+
+python manage.py createsuperuser
+
+
+6. Run the server
+
+python manage.py runserver
