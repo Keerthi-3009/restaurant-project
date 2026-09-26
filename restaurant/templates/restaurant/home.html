@@ -1,0 +1,244 @@
+{% extends 'restaurant/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Saffron & Sage Bistro | Home
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+
+<section class="hero-section">
+
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+
+        <div class="hero-text">
+
+            <span class="hero-small-title">
+                ✦ WELCOME TO SAFFRON & SAGE
+            </span>
+
+            <h1>
+                Good Food.
+                <br>
+                <span>Good Moments.</span>
+            </h1>
+
+            <p>
+                Come together over delicious food, warm hospitality
+                and unforgettable moments.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="{% url 'menu' %}" class="gold-btn">
+                    Explore Our Menu
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+                <a href="{% url 'book_table' %}" class="outline-btn">
+                    Book a Table
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="scroll-down">
+        <i class="bi bi-chevron-down"></i>
+    </div>
+
+</section>
+
+
+<!-- INTRO -->
+
+<section class="intro-section" id="about">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <div class="intro-image">
+
+                    <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=85"
+                         alt="Restaurant food">
+
+                    <div class="image-badge">
+
+                        <strong>10+</strong>
+
+                        <span>
+                            Years of
+                            <br>
+                            Taste
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <span class="section-label">
+                    OUR STORY
+                </span>
+
+                <h2 class="section-title">
+                    A place where
+                    <span>food feels like home.</span>
+                </h2>
+
+                <p class="section-text">
+                    At Saffron & Sage, we believe that dining is more
+                    than just eating. It is about sharing stories,
+                    celebrating moments and creating memories around
+                    the table.
+                </p>
+
+                <p class="section-text">
+                    Our kitchen brings together fresh ingredients,
+                    traditional flavours and a modern touch to create
+                    dishes that everyone can enjoy.
+                </p>
+
+                <a href="{% url 'menu' %}" class="text-link">
+                    Discover Our Menu
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FEATURES -->
+
+<section class="features-section">
+
+    <div class="container">
+
+        <div class="section-heading text-center">
+
+            <span class="section-label">
+                WHY VISIT US
+            </span>
+
+            <h2 class="section-title">
+                Made for <span>beautiful moments</span>
+            </h2>
+
+        </div>
+
+        <div class="row g-4 mt-3">
+
+            <div class="col-md-4">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-egg-fried"></i>
+                    </div>
+
+                    <h3>Fresh Ingredients</h3>
+
+                    <p>
+                        Carefully selected ingredients prepared
+                        fresh for every plate.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-heart"></i>
+                    </div>
+
+                    <h3>Made With Love</h3>
+
+                    <p>
+                        Every dish is prepared with passion,
+                        care and attention to detail.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        <i class="bi bi-people"></i>
+                    </div>
+
+                    <h3>Warm Atmosphere</h3>
+
+                    <p>
+                        Relax, enjoy your meal and spend quality
+                        time with the people you love.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOD CTA -->
+
+<section class="food-cta">
+
+    <div class="container">
+
+        <div class="food-cta-content">
+
+            <span>
+                HUNGRY YET?
+            </span>
+
+            <h2>
+                Your table is waiting.
+            </h2>
+
+            <p>
+                Great food tastes even better when shared.
+            </p>
+
+            <a href="{% url 'book_table' %}" class="gold-btn">
+                Reserve Your Table
+                <i class="bi bi-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

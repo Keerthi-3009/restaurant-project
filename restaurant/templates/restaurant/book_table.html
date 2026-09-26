@@ -1,0 +1,323 @@
+{% extends 'restaurant/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Book a Table | Saffron & Sage
+{% endblock %}
+
+{% block content %}
+
+<section class="booking-page">
+
+    <div class="container">
+
+        <div class="row g-0 booking-box">
+
+            <!-- IMAGE -->
+
+            <div class="col-lg-5">
+
+                <div class="booking-image">
+
+                    <div class="booking-image-overlay"></div>
+
+                    <div class="booking-image-content">
+
+                        <span>
+                            ✦ SAVOR THE MOMENT
+                        </span>
+
+                        <h1>
+                            Your table
+                            <br>
+                            is waiting.
+                        </h1>
+
+                        <p>
+                            Join us for delicious food,
+                            warm hospitality and memorable moments.
+                        </p>
+
+                        <div class="booking-contact">
+
+                            <p>
+                                <i class="bi bi-clock"></i>
+                                Mon - Sun: 11 AM - 11 PM
+                            </p>
+
+                            <p>
+                                <i class="bi bi-telephone"></i>
+                                +91 98765 43210
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <div class="col-lg-7">
+
+                <div class="booking-form-wrapper">
+
+                    <span class="section-label">
+                        RESERVATION
+                    </span>
+
+                    <h2>
+                        Book a Table
+                    </h2>
+
+                    <p class="booking-description">
+                        Reserve your table and let us take care
+                        of the rest.
+                    </p>
+
+
+                    <form method="POST">
+
+                        {% csrf_token %}
+
+                        {% if messages %}
+
+                            {% for message in messages %}
+
+                                <div class="alert alert-success">
+                                    {{ message }}
+                                </div>
+
+                            {% endfor %}
+
+                        {% endif %}
+
+
+                        {% if form.errors %}
+
+                            <div class="alert alert-danger">
+                                Please check the information below.
+                            </div>
+
+                        {% endif %}
+
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Your Name
+                                    </label>
+
+                                    <input type="text"
+                                           name="name"
+                                           class="custom-input"
+                                           placeholder="Enter your name"
+                                           required>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Phone Number
+                                    </label>
+
+                                    <input type="tel"
+                                           name="phone"
+                                           class="custom-input"
+                                           placeholder="+91 XXXXX XXXXX"
+                                           required>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Date
+                                    </label>
+
+                                    <input type="date"
+                                           name="date"
+                                           class="custom-input"
+                                           required>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Time
+                                    </label>
+
+                                    <input type="time"
+                                           name="time"
+                                           class="custom-input"
+                                           required>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Number of Guests
+                                    </label>
+
+                                    <select name="guests"
+                                            class="custom-input"
+                                            required>
+
+                                        <option value="">
+                                            Select guests
+                                        </option>
+
+                                        <option value="1">
+                                            1 Person
+                                        </option>
+
+                                        <option value="2">
+                                            2 People
+                                        </option>
+
+                                        <option value="3">
+                                            3 People
+                                        </option>
+
+                                        <option value="4">
+                                            4 People
+                                        </option>
+
+                                        <option value="5">
+                                            5 People
+                                        </option>
+
+                                        <option value="6">
+                                            6 People
+                                        </option>
+
+                                        <option value="7">
+                                            7 People
+                                        </option>
+
+                                        <option value="8">
+                                            8+ People
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Occasion
+                                    </label>
+
+                                    <select name="occasion"
+                                            class="custom-input">
+
+                                        <option value="">
+                                            Select occasion
+                                        </option>
+
+                                        <option>
+                                            Birthday
+                                        </option>
+
+                                        <option>
+                                            Anniversary
+                                        </option>
+
+                                        <option>
+                                            Family Dinner
+                                        </option>
+
+                                        <option>
+                                            Business Dinner
+                                        </option>
+
+                                        <option>
+                                            Other
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-12">
+
+                                <div class="form-group">
+
+                                    <label>
+                                        Special Request
+                                    </label>
+
+                                    <textarea name="message"
+                                              rows="4"
+                                              class="custom-input"
+                                              placeholder="Any special requests?"></textarea>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <button type="submit"
+                                class="booking-submit">
+
+                            Confirm Reservation
+
+                            <i class="bi bi-arrow-right"></i>
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

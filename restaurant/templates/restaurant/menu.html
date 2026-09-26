@@ -1,0 +1,501 @@
+{% extends 'restaurant/base.html' %}
+
+{% load static %}
+
+{% block title %}
+Our Menu | Saffron & Sage
+{% endblock %}
+
+{% block content %}
+
+<!-- MENU HERO -->
+
+<section class="menu-hero">
+
+    <div class="menu-hero-overlay"></div>
+
+    <div class="container">
+
+        <div class="menu-hero-content">
+
+            <span>
+                ✦ TASTE THE DIFFERENCE
+            </span>
+
+            <h1>
+                Our Menu
+            </h1>
+
+            <p>
+                Fresh ingredients. Bold flavours.
+                Beautifully prepared.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- MENU -->
+
+<section class="menu-section">
+
+    <div class="container">
+
+        <div class="section-heading text-center">
+
+            <span class="section-label">
+                FROM OUR KITCHEN
+            </span>
+
+            <h2 class="section-title">
+                Delicious <span>favourites</span>
+            </h2>
+
+            <p>
+                Explore our selection of dishes made specially
+                for you.
+            </p>
+
+        </div>
+
+
+        <!-- CATEGORY -->
+
+        <div class="menu-category">
+
+            <div class="category-title">
+
+                <div>
+                    <span>01</span>
+                    <h3>Starters</h3>
+                </div>
+
+                <p>
+                    Something delicious to begin with
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="food-card">
+
+                        <div class="food-image">
+
+                            <img src="https://images.unsplash.com/photo-1541014741259-de529411b96a?auto=format&fit=crop&w=800&q=85"
+                                 alt="Bruschetta">
+
+                            <span class="food-tag">
+                                Popular
+                            </span>
+
+                        </div>
+
+                        <div class="food-info">
+
+                            <div class="food-title-row">
+
+                                <h4>
+                                    Garden Bruschetta
+                                </h4>
+
+                                <span class="food-price">
+                                    ₹280
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Toasted artisan bread topped with
+                                fresh tomatoes, herbs and olive oil.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="food-card">
+
+                        <div class="food-image">
+
+                            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=85"
+                                 alt="Samosa">
+
+                        </div>
+
+                        <div class="food-info">
+
+                            <div class="food-title-row">
+
+                                <h4>
+                                    Crispy Samosa
+                                </h4>
+
+                                <span class="food-price">
+                                    ₹180
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Golden crispy pastry filled with
+                                spiced vegetables and served with dip.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="food-card">
+
+                        <div class="food-image">
+
+                            <img src="https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=800&q=85"
+                                 alt="Pasta">
+
+                        </div>
+
+                        <div class="food-info">
+
+                            <div class="food-title-row">
+
+                                <h4>
+                                    Creamy Pasta
+                                </h4>
+
+                                <span class="food-price">
+                                    ₹320
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Creamy pasta tossed with herbs,
+                                vegetables and parmesan.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MAIN COURSE -->
+
+        <div class="menu-category">
+
+            <div class="category-title">
+
+                <div>
+                    <span>02</span>
+                    <h3>Main Course</h3>
+                </div>
+
+                <p>
+                    The heart of your dining experience
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="food-card">
+
+                        <div class="food-image">
+
+                            <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=800&q=85"
+                                 alt="Indian curry">
+
+                            <span class="food-tag">
+                                Chef's Choice
+                            </span>
+
+                        </div>
+
+                        <div class="food-info">
+
+                            <div class="food-title-row">
+
+                                <h4>
+                                    Royal Chicken Curry
+                                </h4>
+
+                                <span class="food-price">
+                                    ₹420
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Tender chicken cooked in a rich,
+                                aromatic Indian spice gravy.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="food-card">
+
+                        <div class="food-image">
+
+                            <img src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=800&q=85"
+                                 alt="Biryani">
+
+                        </div>
+
+                        <div class="food-info">
+
+                            <div class="food-title-row">
+
+                                <h4>
+                                    Saffron Biryani
+                                </h4>
+
+                                <span class="food-price">
+                                    ₹390
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Fragrant basmati rice layered with
+                                aromatic spices and tender meat.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="food-card">
+
+                        <div class="food-image">
+
+                            <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=85"
+                                 alt="Grilled food">
+
+                        </div>
+
+                        <div class="food-info">
+
+                            <div class="food-title-row">
+
+                                <h4>
+                                    Herb Grilled Platter
+                                </h4>
+
+                                <span class="food-price">
+                                    ₹520
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Grilled seasonal vegetables with
+                                herbs and our signature sauce.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DESSERT -->
+
+        <div class="menu-category">
+
+            <div class="category-title">
+
+                <div>
+                    <span>03</span>
+                    <h3>Desserts</h3>
+                </div>
+
+                <p>
+                    A sweet ending to your meal
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="food-card">
+
+                        <div class="food-image">
+
+                            <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=85"
+                                 alt="Donuts">
+
+                        </div>
+
+                        <div class="food-info">
+
+                            <div class="food-title-row">
+
+                                <h4>
+                                    Sweet Treat
+                                </h4>
+
+                                <span class="food-price">
+                                    ₹220
+                                </span>
+
+                            </div>
+
+                            <p>
+                                A delicious sweet treat to finish
+                                your dining experience.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="food-card">
+
+                        <div class="food-image">
+
+                            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=85"
+                                 alt="Chocolate cake">
+
+                        </div>
+
+                        <div class="food-info">
+
+                            <div class="food-title-row">
+
+                                <h4>
+                                    Chocolate Cake
+                                </h4>
+
+                                <span class="food-price">
+                                    ₹260
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Rich chocolate cake with a soft,
+                                creamy centre.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-lg-4 col-md-6">
+
+                    <div class="food-card">
+
+                        <div class="food-image">
+
+                            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=85"
+                                 alt="Ice cream">
+
+                        </div>
+
+                        <div class="food-info">
+
+                            <div class="food-title-row">
+
+                                <h4>
+                                    Signature Ice Cream
+                                </h4>
+
+                                <span class="food-price">
+                                    ₹190
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Creamy handcrafted ice cream with
+                                your choice of toppings.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOK TABLE CTA -->
+
+        <div class="menu-bottom-cta">
+
+            <span>
+                READY TO DINE?
+            </span>
+
+            <h2>
+                Come hungry. Leave happy.
+            </h2>
+
+            <a href="{% url 'book_table' %}" class="gold-btn">
+                Book Your Table
+                <i class="bi bi-arrow-right"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
