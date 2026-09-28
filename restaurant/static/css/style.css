@@ -234,3 +234,22 @@ body {
     border-color: #c62828;
     background-color: #c62828;
 }
+
+.food-type-dot {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    border: 2px solid;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.food-type-dot.veg {
+    border-color: #2e7d32;
+    background-color: #2e7d32;
+}
+
+.food-type-dot.non_veg {
+    border-color: #c62828;
+    background-color: #c62828;
+}
