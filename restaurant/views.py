@@ -8,19 +8,34 @@ def home(request):
 
 
 def menu(request):
-    NO_SPLIT_CATEGORIES = {'desserts', 'beverages'}
+    CATEGORY_TAGLINES = {
+        'starters': 'Something delicious to begin with',
+        'soups': 'Warm bowls to start your meal',
+        'shawarma': 'Fresh, juicy and full of flavour',
+        'biryani': 'Fragrant rice layered with spices',
+        'meals': 'A complete, satisfying plate',
+        'mandhi': 'Traditional Arabian style, slow cooked',
+        'main_course': 'The heart of your dining experience',
+        'desserts': 'A sweet ending to your meal',
+        'beverages': 'Refreshing drinks to go with your food',
+    }
+    NO_FOOD_TYPE = {'desserts', 'beverages'}
 
     items = MenuItem.objects.filter(is_available=True).order_by('category', 'food_type', 'name')
-    grouped = {}
-    for item in items:
-        cat_label = item.get_category_display()
-        if item.category in NO_SPLIT_CATEGORIES:
-            grouped.setdefault(cat_label, {'flat': []})
-            grouped[cat_label]['flat'].append(item)
-        else:
-            grouped.setdefault(cat_label, {'veg': [], 'non_veg': []})
-            grouped[cat_label][item.food_type].append(item)
-    return render(request, 'restaurant/menu.html', {'grouped_items': grouped})
+
+    categories = []
+    for value, label in MenuItem.CATEGORY_CHOICES:
+        dishes = [i for i in items if i.category == value]
+        if dishes:
+            categories.append({
+                'value': value,
+                'label': label,
+                'tagline': CATEGORY_TAGLINES.get(value, ''),
+                'show_food_type': value not in NO_FOOD_TYPE,
+                'dishes': dishes,
+            })
+
+    return render(request, 'restaurant/menu.html', {'categories': categories})
 
 
 def book_table(request):
