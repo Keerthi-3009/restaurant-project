@@ -25,7 +25,11 @@ SECRET_KEY = 'django-insecure-iv=0_s&c)q()3#yeg-l^a$p=vt$!+6kjgjy@mt8f7-xr(ks*cx
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "restaurant-project-pr4c.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
