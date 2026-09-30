@@ -21,7 +21,7 @@ The project covers the core workflow of a small restaurant website: presenting t
 <img src="screenshots/homepage.png" alt="Home page" width="800">
 
 ### Menu
-<img src="screenshots/menu.png" alt="Menu page" width="800">
+<img src="screenshots/menu-order.png" alt="Menu page" width="800">
 
 ### Book a Table
 <img src="screenshots/book-a-table.png" alt="Book a Table page" width="800">
