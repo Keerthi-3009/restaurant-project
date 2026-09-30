@@ -1,0 +1,10 @@
+<article class="dish">
+  <div class="ph" data-emoji="{{ item.emoji }}"><img loading="lazy" src="{{ item.photo_url }}" alt="{{ item.name }}" onerror="this.remove()"></div>
+  <div class="info">
+    <div class="top">
+      {% if category.show_food_type %}<i class="ft {{ item.food_type }}" title="{{ item.get_food_type_display }}"></i>{% endif %}
+      <h3>{{ item.name }}</h3><i class="dots"></i><span class="price">₹{{ item.price|floatformat:"-2" }}</span>
+    </div>
+    {% if item.description %}<p>{{ item.description }}</p>{% endif %}
+  </div>
+</article>

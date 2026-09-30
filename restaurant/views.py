@@ -1,54 +1,33 @@
-from django.shortcuts import render, redirect
+# views.py
 from django.contrib import messages
-from .models import MenuItem, Reservation
-
+from django.db.models import Prefetch
+from django.shortcuts import redirect, render
+from .models import Category, MenuItem, Reservation
 
 def home(request):
-    return render(request, 'restaurant/home.html')
-
+    return render(request, "restaurant/home.html")
 
 def menu(request):
-    CATEGORY_TAGLINES = {
-        'starters': 'Something delicious to begin with',
-        'soups': 'Warm bowls to start your meal',
-        'shawarma': 'Fresh, juicy and full of flavour',
-        'biryani': 'Fragrant rice layered with spices',
-        'meals': 'A complete, satisfying plate',
-        'mandhi': 'Traditional Arabian style, slow cooked',
-        'main_course': 'The heart of your dining experience',
-        'desserts': 'A sweet ending to your meal',
-        'beverages': 'Refreshing drinks to go with your food',
-    }
-    NO_FOOD_TYPE = {'desserts', 'beverages'}
-
-    items = MenuItem.objects.filter(is_available=True).order_by('category', 'food_type', 'name')
-
+    available = Prefetch("items", queryset=MenuItem.objects.filter(is_available=True), to_attr="available_items")
     categories = []
-    for value, label in MenuItem.CATEGORY_CHOICES:
-        dishes = [i for i in items if i.category == value]
-        if dishes:
-            categories.append({
-                'value': value,
-                'label': label,
-                'tagline': CATEGORY_TAGLINES.get(value, ''),
-                'show_food_type': value not in NO_FOOD_TYPE,
-                'dishes': dishes,
-            })
-
-    return render(request, 'restaurant/menu.html', {'categories': categories})
+    for c in Category.objects.prefetch_related(available):
+        if not c.available_items:
+            continue
+        c.veg_items = [i for i in c.available_items if i.food_type == "veg"]
+        c.nonveg_items = [i for i in c.available_items if i.food_type == "nonveg"]
+        categories.append(c)
+    return render(request, "restaurant/menu.html", {"categories": categories})
 
 
 def book_table(request):
-    if request.method == 'POST':
+    if request.method == "POST":
+        p = request.POST
         Reservation.objects.create(
-            name=request.POST.get('name', ''),
-            phone=request.POST.get('phone', ''),
-            date=request.POST.get('date'),
-            time=request.POST.get('time'),
-            guests=request.POST.get('guests') or 2,
-            occasion=request.POST.get('occasion', ''),
-            special_request=request.POST.get('message', ''),
+            name=p["name"], email=p["email"], phone=p["phone"],
+            date=p["date"], time=p["time"], guests=p.get("guests", 2),
+            occasion=p.get("occasion", ""),
+            special_request=p.get("special_request", "").strip(),
         )
-        messages.success(request, "Your table has been booked! We'll see you soon.")
-        return redirect('book_table')
-    return render(request, 'restaurant/book_table.html')
+        messages.success(request, "Your table is booked. We will confirm shortly.")
+        return redirect("book_table")
+    return render(request, "restaurant/book_table.html")

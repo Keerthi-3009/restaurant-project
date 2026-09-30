@@ -1,161 +1,38 @@
+{% extends 'restaurant/base.html' %}
 {% load static %}
-
-{% extends "restaurant/base.html" %}
-
-{% block title %}Our Menu | Saffron & Sage{% endblock %}
-
+{% block title %}Our Menu | Saffron &amp; Sage Bistro{% endblock %}
 {% block content %}
+<div class="hero small">
+  <div class="bg ph"><img src="{% static 'images/menu-banner.jpg' %}" alt="" onerror="this.remove()"></div>
+  <div class="wrap">
+    <h1>Our Menu</h1>
+    <div class="orn"><span></span>✦<span></span></div>
+    <p>Fresh flavours, happy moments, beautiful food.</p>
+  </div>
+</div>
 
-<!-- ================= HERO ================= -->
-<section class="menu-hero">
-    <div class="menu-hero-overlay"></div>
-
-    <div class="menu-hero-content">
-        <p class="hero-small-title">✦ TASTE THE DIFFERENCE</p>
-        <h1>Our Menu</h1>
-        <p>Fresh ingredients. Bold flavours. Beautifully prepared.</p>
-    </div>
-</section>
-
-
-<!-- ================= MENU INTRO ================= -->
-<section class="menu-section">
-
-    <div class="menu-intro">
-        <p class="section-label">FROM OUR KITCHEN</p>
-
-        <h2>
-            Delicious <span>favourites</span>
-        </h2>
-
-        <p>
-            Explore our selection of dishes made specially for you.
-        </p>
-    </div>
-
-
-    <!-- ================= MENU CATEGORIES ================= -->
-
-    {% for category, items in grouped_items.items %}
-
-    <div class="menu-category">
-
-        <div class="category-heading">
-
-            <div class="category-title">
-                <span class="category-number">
-                    {% if forloop.counter < 10 %}
-                        0{{ forloop.counter }}
-                    {% else %}
-                        {{ forloop.counter }}
-                    {% endif %}
-                </span>
-
-                <h2>{{ category }}</h2>
-            </div>
-
-            <p class="category-description">
-                {% if category|lower == "starters" %}
-                    Something delicious to begin with
-                {% elif category|lower == "main course" %}
-                    The heart of your dining experience
-                {% elif category|lower == "desserts" %}
-                    A sweet ending to your meal
-                {% else %}
-                    Delicious dishes from our kitchen
-                {% endif %}
-            </p>
-
-        </div>
-
-
-        <!-- ================= MENU CARDS ================= -->
-
-        <div class="menu-grid">
-
-            {% for item in items %}
-
-            <div class="menu-card">
-
-                <!-- IMAGE -->
-                <div class="menu-card-image">
-
-                    {% if item.image %}
-                        <img src="{{ item.image.url }}" alt="{{ item.name }}">
-                    {% else %}
-                        <img
-                            src="{% static 'images/default-food.jpg' %}"
-                            alt="{{ item.name }}"
-                        >
-                    {% endif %}
-
-                </div>
-
-
-                <!-- CONTENT -->
-                <div class="menu-card-content">
-
-                    <div class="menu-card-title">
-
-                        <h3>{{ item.name }}</h3>
-
-                        <span class="menu-price">
-                            ₹{{ item.price }}
-                        </span>
-
-                    </div>
-
-
-                    {% if item.description %}
-                    <p class="menu-description">
-                        {{ item.description }}
-                    </p>
-                    {% endif %}
-
-                </div>
-
-            </div>
-
-            {% empty %}
-
-            <div class="empty-menu">
-                <h3>Menu coming soon</h3>
-                <p>
-                    Our delicious dishes will be available here shortly.
-                </p>
-            </div>
-
-            {% endfor %}
-
-        </div>
-
-    </div>
-
-    {% empty %}
-
-    <div class="empty-menu">
-        <h3>No menu items available</h3>
-        <p>Please add menu items from the Django Admin panel.</p>
-    </div>
-
-    {% endfor %}
-
-
-    <!-- ================= BOOKING CTA ================= -->
-
-    <section class="menu-cta">
-
-        <p class="section-label">READY TO DINE?</p>
-
-        <h2>Come hungry. Leave happy.</h2>
-
-        <a href="{% url 'book_table' %}" class="menu-cta-button">
-            Book Your Table
-            <span>→</span>
-        </a>
-
-    </section>
-
-</section>
-
+<section><div class="wrap">
+<div class="legend">
+  <span><i class="ft veg"></i> Veg</span>
+  <span><i class="ft nonveg"></i> Non-veg</span>
+</div>
+{% for category in categories %}
+  <div class="cat"><h2>{{ category.name }}</h2>
+  {% if category.show_food_type %}
+    {% if category.veg_items %}
+      <h4 class="sub"><i class="ft veg"></i> Vegetarian</h4>
+      <div class="dishes">{% for item in category.veg_items %}{% include 'restaurant/_dish.html' %}{% endfor %}</div>
+    {% endif %}
+    {% if category.nonveg_items %}
+      <h4 class="sub"><i class="ft nonveg"></i> Non-vegetarian</h4>
+      <div class="dishes">{% for item in category.nonveg_items %}{% include 'restaurant/_dish.html' %}{% endfor %}</div>
+    {% endif %}
+  {% else %}
+    <div class="dishes">{% for item in category.available_items %}{% include 'restaurant/_dish.html' %}{% endfor %}</div>
+  {% endif %}
+  </div>
+{% empty %}
+  <p class="empty">The menu is being prepared. Please check back soon.</p>
+{% endfor %}
+</div></section>
 {% endblock %}
